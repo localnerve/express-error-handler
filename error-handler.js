@@ -209,7 +209,7 @@ createHandler = function createHandler(options) {
 
     var defaultView = o.views['default'],
       defaultStatic = o.static['default'],
-      status = err && err.status ||
+      status = (err && (err.status || err.statusCode)) ||
         res && res.statusCode,
       handler = o.handlers[status],
       view = o.views[status],
